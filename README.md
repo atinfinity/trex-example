@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is an example TensorRT and [TREx](https://developer.nvidia.com/blog/exploring-tensorrt-engines-with-trex/).
+This is an example of TensorRT and [TREx](https://developer.nvidia.com/blog/exploring-tensorrt-engines-with-trex/).
 
 - TensorRT
   - Build engine
