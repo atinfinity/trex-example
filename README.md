@@ -27,10 +27,10 @@ I created [model/model_bn.onnx](model/model_bn.onnx). This model was generated u
 Please build engine by TensorRT.
 
 ```shell
-trtexec --verbose --nvtxMode=verbose --buildOnly --workspace=8192 --onnx=model/model_bn.onnx --saveEngine=model_bn.onnx.engine --timingCacheFile=model_bn.onnx.engine.timing.json --int8 --useDLACore=0 --allowGPUFallback > model_bn.onnx.engine.build.log
+trtexec --verbose --profilingVerbosity=detailed --buildOnly --memPoolSize=workspace:8192MiB --onnx=model/model_bn.onnx --saveEngine=model_bn.onnx.engine --int8 --useDLACore=0 --allowGPUFallback > model_bn.onnx.engine.build.log
 ```
 
-Please generate meta data of building.
+Please generate metadata of building.
 
 ```shell
 python3 script/generate_build_metadata.py
@@ -44,7 +44,7 @@ Please profile by TensorRT.
 trtexec --verbose --noDataTransfers --separateProfileRun --useSpinWait --profilingVerbosity=detailed --loadEngine=model_bn.onnx.engine --exportTimes=model_bn.onnx.engine.timing.json --exportProfile=model_bn.onnx.engine.profile.json --exportLayerInfo=model_bn.onnx.engine.graph.json --timingCacheFile=timing.cache > model_bn.onnx.engine.profile.log
 ```
 
-Please generate meta data of profiling.
+Please generate metadata of profiling.
 
 ```shell
 python3 script/generate_profiling_metadata.py
@@ -52,7 +52,7 @@ python3 script/generate_profiling_metadata.py
 
 ## Visualization by TREx
 
-I provided an example notebook([notebook/trex_example.ipynb](notebook/trex_example.ipynb)) for visualization.
+I provided an example notebook([trex_example.ipynb](trex_example.ipynb)) for visualization.
 
 ![](image/model_bn.svg)
 
