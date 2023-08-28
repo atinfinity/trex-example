@@ -14,6 +14,8 @@ I checked on the following environment.
 
 - reComputer J4012(Jetson Orin NX 16GB)
 - JetPack 5.1.2
+- TensorRT 8.5.2
+- TREx 0.1.6
 
 ## Create ONNX model
 
